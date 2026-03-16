@@ -29,13 +29,12 @@ def select_model(args, device):
         model_path = os.path.join('model_zoo', f'team00_SPAN.pth')
         stat_dict = torch.load(model_path)
         model.load_state_dict(stat_dict, strict=False)
-    elif model_id == 1:
-        pass  # ---- Put your model here as below ---
-        # from models.team01_[your_model_name] import [your_model_name]
-        # name, data_range = f"{model_id:02}_[your_model_name]", [255.0 / 1.0] # You can choose either 1.0 or 255.0 based on your own model
-        # model_path = os.path.join('model_zoo', 'team01_[your_model_name].pth')
-        # model = [your_model_name]()
-        # model.load_state_dict(torch.load(model_path), strict=True)
+    elif model_id == 9:
+        from models.team9_RFDN_SPAN import RFDN_SPAN
+        name, data_range = f"{model_id:03}_RFDN_SPAN", 1.0
+        model_path = os.path.join('model_zoo', f'team9_RFDN_SPAN.pth')
+        model = RFDN_SPAN(in_nc=3,nf=46,num_modules=4,out_nc=3,upscale=4)
+        model.load_state_dict(torch.load(model_path)["params_ema"], strict=True)
     else:
         raise NotImplementedError(f"Model {model_id} is not implemented.")
 
