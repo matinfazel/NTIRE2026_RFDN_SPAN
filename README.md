@@ -6,6 +6,8 @@ This repository contains the implementation and resources for our proposed **RFD
 
 RFDN SPAN redesigns the residual feature distillation block (RFDB) by replacing the original ESA module with a parameter-free attention mechanism inspired by SPAN. This attention computes spatial importance directly from intermediate features, enabling effective feature modulation without adding extra parameters. The result is a lightweight model with reduced parameter count and FLOPs while preserving competitive reconstruction quality.
 
+![RFDN SPAN Architecture](Architecture.png)
+
 ## Highlights
 
 - Efficient model design based on **RFDN**
